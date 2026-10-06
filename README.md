@@ -1,0 +1,2 @@
+# KhoKO
+Quản ly kho
