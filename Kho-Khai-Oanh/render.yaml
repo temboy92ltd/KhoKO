@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kho-khai-oanh
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m flask --app app init-db && gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 4 app:app
+    healthCheckPath: /health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false

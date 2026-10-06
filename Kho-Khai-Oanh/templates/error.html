@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<section class="panel error-panel"><span class="eyebrow">{{ code }}</span><h1>{{ message }}</h1><a class="button" href="{{ url_for('dashboard') if current_user else url_for('login') }}">Quay về trang chính</a></section>{% endblock %}
